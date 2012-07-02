@@ -58,8 +58,13 @@ class Fetcher(Thread, object):
 			sleep(this.sleep_delay)
 			
 	def is_ext_ok(this, ext):
-		if this.enabled_exts and ext in this.enabled_exts: return True
-		if this.disabled_exts and ext not in this.disabled_exts: return True
+		# only one takes effects
+		if this.enabled_exts:
+			if ext in this.enabled_exts:
+				return True
+		elif this.disabled_exts:
+			if ext not in this.disabled_exts:
+				return True
 		return False
 		
 	def run(this):
