@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+from optparse import OptionParser
+from os.path import dirname
+from shutil import copy
+
+usage='''%prog [-t type] [-n name]
+	
+create a new spider program using blackwidow api'''
+
+types='pdf image simple'
+default_type='simple'
+default_name='a_new_spider'
+
+parser=OptionParser(usage=usage, version='%prog 1.0')
+parser.add_option('-t', '--type', dest='type', help='the type of the spider, it can be one of the flollowings: '+types, default=default_type)
+parser.add_option('-n', '--name', dest='name', help='the name of the spider, defult name is '+default_name, default=default_name)
+parser.add_option('-q', '--quiet', action='store_false', dest='verbose', default=True, help='be quiet without many messages')
+parser.add_option('-v', '--verbose', action='store_true', dest='verbose', help='print status messages to stdout')
+(options, args)=parser.parse_args()
+
+if not options.type in types.split():
+	parser.error('type must be one of: '+types)
+	
+src='%s/blackwidow-%s-spider.py' % (dirname(__file__), options.type)
+dst='%s.py' % options.name
+copy(src, dst)
+
+
+
+
