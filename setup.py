@@ -7,6 +7,7 @@ from os.path import isfile
 
 fs=filter(isfile, ['scripts/'+i for i in listdir('scripts')])
 print fs
+print fs
 
 setup(
 	name='blackwidow',
