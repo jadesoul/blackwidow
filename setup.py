@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 #coding:utf8
-
 from distutils.core import setup
-from os import listdir
-from os.path import isfile
-
-fs=filter(isfile, ['scripts/'+i for i in listdir('scripts')])
-print fs
 
 setup(
 	name='blackwidow',
@@ -17,6 +11,5 @@ setup(
 	url='http://jadesoul.sinaapp.com/',
 	license='Python Software Foundation License',
 	packages=['blackwidow'],
-	scripts=fs,
 )
 
