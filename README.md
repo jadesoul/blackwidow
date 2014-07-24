@@ -1,7 +1,10 @@
 blackwidow
 ==========
 
-Jadesoul's OpenSource Web Spider Program=Welcome to Black Widow=
+Jadesoul's OpenSource Web Spider Program 
+
+Welcome to Black Widow
+----------------------
 
 Black Widow is a lightweight, efficient, scalable and practical web spider 
 purely implemented in python.
@@ -17,34 +20,34 @@ http://upload.wikimedia.org/wikipedia/commons/f/f9/BlackWidow.jpg
 The black widow is very handsome, powerful, and pretty dangerous 
 if not playing with caution, as well as this spider program.
 
-----
 
-=Features=
+Features
+--------
 
-===Lightweight===
+=== Lightweight
   * It is designed to be lightweight and easy to use, with less than 5000 lines of python code, it is tiny small in comparison to so many opensource and production spiders.
   * The structure of the spider is pretty simple, including the code structure, the temporary data structure and so on.
 
-===Efficient===
+=== Efficient
   * It is designed to be efficient. It has a multi-process structure, that is, one parser process and N fetcher process.
   * Their coperations through the file system is designed to be efficient and no deadlock will happen because of the time limitation and space checking are both considerd for controlling.
   * The url's file extention used in runtime is determined by content type in the document response http headers first rather than simply determined by the url extension.
 
-===Scalable===
+=== Scalable
   * It is totally configurable, there are enought simple options to meet different demand. 
   * For example, seed urls, max depth, enalbled and disabled url patterns and extensions, priority of extensions for sheduling to make sure important resources being processed earlier. 
   * The number of fetcher process is changable for better use of network bandwidth. 
   * Downloaded resource will be archived by extension or not, and so on.
   
-===Practical===
+=== Practical
   * It is designed to be pratical and useful, especially for small and middium scale crawling tasks. 
   * At the beginning, in fact, this spider is designed to grap pictures from a picture site or fetch all pdfs from a professor's homepage. So it ignored many details as a  production spider should consider, for example, robots.txt will not be considered.
-----
 
-=Requirements=
+Requirements
+-------------
+
   * Any OS supported Python
   * Python 2.5 or 2.6 or *2.7(Recommended)*  [http://www.python.org/getit/ Python Download Page]
-----
 
 =Installation=
 ===Install blackwidow as a python package by pth file automatically(Only for Windows)===
