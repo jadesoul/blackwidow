@@ -54,7 +54,7 @@ class Fetcher(Thread, object):
 							rank=this.priority_order_dict.get(ext, 1000000)
 							urls.append((id, url, md5, depth, rank))
 			if urls: return urls
-			print this.fecher_name, 'no next urls !!!', time_gap(this.PASS_TIME_CLOCK, reset=0)
+			print this.fecher_name, str(now()), 'no next urls !!!', time_gap(this.PASS_TIME_CLOCK, reset=0)
 			sleep(this.sleep_delay)
 			
 	def is_ext_ok(this, ext):

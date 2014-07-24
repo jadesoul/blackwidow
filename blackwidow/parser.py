@@ -59,7 +59,7 @@ class Parser(Thread, object):
 		name='%d-%d.txt' % (ids[0], ids[-1])
 		fp=join(dir_urls, name)
 		print this.parser_name, 'gen_urls_file', name, 'size=', len(ss)
-		s='\n'.join(ss)
+		s='\n'.join(ss)+'\n'
 		print s
 		fwrite(s, fp)
 
@@ -83,13 +83,14 @@ class Parser(Thread, object):
 					continue
 				id=int(id)
 				depth=int(depth)
-				page=smart_fread(fp_data)
+				#page=smart_fread(fp_data)
+				page=fread(fp_data)
 				return page, id, url, real_url, content_type, ext, md5, depth, finish_time, duration, fp_data, fp_info
 			if time_elapse(this.GEN_URLS_CLOCK)>this.max_seconds_gen_urls and this.new_urls:
 				this.gen_urls_file(this.new_urls)
 				time_update(this.GEN_URLS_CLOCK)
 				this.new_urls=[]
-			print this.parser_name, 'not next page~~ ', time_gap(this.PASS_TIME_CLOCK, reset=0)
+			print this.parser_name, str(now()), 'not next page~~ ', time_gap(this.PASS_TIME_CLOCK, reset=0), 'history_urls:%d' % len(this.history_urls)
 			sleep(this.sleep_delay)
 			
 	def archive_a_page(this, time, fp_data, fp_info, ext):
