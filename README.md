@@ -80,48 +80,48 @@ User Guide
   
 ### Configuration Details
 
-# the first urls list to start crawling, called seeds, seperated line by line
-# lines begin with # will be ignored as comment (the same for all string options in this file)
+		# the first urls list to start crawling, called seeds, seperated line by line
+		# lines begin with # will be ignored as comment (the same for all string options in this file)
 		seed_urls='''
 		http://www.clsp.jhu.edu/ws03/groups/translate/biblio.shtml
 		'''
 
-# whether or not crawling only inside the site/sites specified by the seed urls
+		# whether or not crawling only inside the site/sites specified by the seed urls
 		in_site_crawl=1
 
-# the number of the fechers, the more the better usage of the network bandwidth
-# however, too many fechers will have a strong influence on the OS process scheduling
+		# the number of the fechers, the more the better usage of the network bandwidth
+		# however, too many fechers will have a strong influence on the OS process scheduling
 		num_fechers=10
 
-# seconds when a parser or fecher sleeps for nothing to do
+		# seconds when a parser or fecher sleeps for nothing to do
 		sleep_delay=5
 
-# max depth of following a link to process, 0 means just handle seed urls, -1 means no limit
+		# max depth of following a link to process, 0 means just handle seed urls, -1 means no limit
 		max_depth=1
 
-# on outsite link, whether reset depth as 0, or increasing the depth like the insite link did
-# outsite link is a link from a site pointing to another different site, while insite link is pointing to the site itself
+		# on outsite link, whether reset depth as 0, or increasing the depth like the insite link did
+		# outsite link is a link from a site pointing to another different site, while insite link is pointing to the site itself
 		reset_depth_on_outsite_link=1
 
-# max seconds between continuously generating urls file in 2 times
+		# max seconds between continuously generating urls file in 2 times
 		max_seconds_gen_urls=10
 
-# min records to generate a new urls file
+		# min records to generate a new urls file
 		min_records_gen_urls=2000
 
-# while list of url regular expressions, only urls match this and not match disabled_urls will be processed
-# this is only used in the parser when new links are extracted from a page, same with disabled_urls
+		# while list of url regular expressions, only urls match this and not match disabled_urls will be processed
+		# this is only used in the parser when new links are extracted from a page, same with disabled_urls
 		enabled_urls='''
 		'''
 
-# black list of url regular expressions, any url match this will be ignored, even in enabled_urls 
+		# black list of url regular expressions, any url match this will be ignored, even in enabled_urls 
 		disabled_urls='''
 		'''
 
-# enabled extensions of a url to download data, seperated by empty chars or line
-# the extension is determined by the mime-type of response document and refer-url
-# the enabled_exts and disabled_exts are only used in the fecher, it will open socket first
-# to get the mime-type and refer-url, the content is downloaded only when ext is permitted
+		# enabled extensions of a url to download data, seperated by empty chars or line
+		# the extension is determined by the mime-type of response document and refer-url
+		# the enabled_exts and disabled_exts are only used in the fecher, it will open socket first
+		# to get the mime-type and refer-url, the content is downloaded only when ext is permitted
 		enabled_exts='''
 		htm html shtml
 		xml txt
@@ -130,17 +130,17 @@ User Guide
 		doc docx rtf xls xlsx csv tsv tab ppt pptx
 		'''
 
-# disabled extensions of a url to download data, seperated by empty chars or line
-# if enabled_exts is not empty, this won't take effect
+		# disabled extensions of a url to download data, seperated by empty chars or line
+		# if enabled_exts is not empty, this won't take effect
 		disabled_exts='''
 		rm rmvb avi mp3
 		'''
 
-# when archive, whether to gather all files with the same extension or not
+		# when archive, whether to gather all files with the same extension or not
 		archive_by_ext=1
 
-# priority of different extensions of urls to be scheduled, seperated by empty chars or line
-# if you are about to crawl pdfs, you can move the "pdf ps ps.gz" to the first line
+		# priority of different extensions of urls to be scheduled, seperated by empty chars or line
+		# if you are about to crawl pdfs, you can move the "pdf ps ps.gz" to the first line
 		priority_order='''
 		htm html shtml mht mhtm xhtml
 		xml xslt rss
