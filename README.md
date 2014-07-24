@@ -64,21 +64,21 @@ Installation
 User Guide
 ----------
 
-### To run a new crawler application after installation, you just need to
- # copy the "a_spider_sample.py" to anywhere as you want, or you can also leave it where it is
- # modify the necessary options, you can rename the file if you want
- # just double click to run that python file
+#### To run a new crawler application after installation, you just need to
+  * copy the "a_spider_sample.py" to anywhere as you want, or you can also leave it where it is
+  * modify the necessary options, you can rename the file if you want
+  * just double click to run that python file
  
-### What if I can't start the program
+#### What if I can't start the program
   * please do make sure you installed python *2.5/2.6/2.7*, Python 3.x is temporarily *not supported*, but will be considered in the future :)
   * try to make sure "python" command is accessable in system shell
   * try to make sure the libspider directory and your application is in the same folder
   
-### Where could I find the result
+#### Where could I find the result
   * You can find your result in archive folder
   * the urls, pages, states dir are tmp dirs
   
-### Configuration Details
+#### Configuration Details
 
 		# the first urls list to start crawling, called seeds, seperated line by line
 		# lines begin with # will be ignored as comment (the same for all string options in this file)
@@ -160,7 +160,6 @@ User Guide
 If you have any problem, please feel free to ask me by wslgb2006@gmail.com :)
 
 This software is designed in my spare time, hope you will enjoy it !
----------------------------------------------------------------------------
 
 Designed By Jadesoul @ 2011-11-23 | http://jadesoul.org
 Move to Git On 2012-7-3 By Jadesoul
