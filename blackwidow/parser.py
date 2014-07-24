@@ -83,7 +83,7 @@ class Parser(Thread, object):
 					continue
 				id=int(id)
 				depth=int(depth)
-				page=fread(fp_data)
+				page=smart_fread(fp_data)
 				return page, id, url, real_url, content_type, ext, md5, depth, finish_time, duration, fp_data, fp_info
 			if time_elapse(this.GEN_URLS_CLOCK)>this.max_seconds_gen_urls and this.new_urls:
 				this.gen_urls_file(this.new_urls)
@@ -188,7 +188,8 @@ class Parser(Thread, object):
 				if not this.new_urls: continue
 				print this.parser_name, 'new_urls:', len(this.new_urls), time_gap(this.PASS_TIME_CLOCK, reset=0)
 				
-				print this.new_urls
+				for new_url, new_url_depth in this.new_urls:
+					print 'new url:', new_url, 'depth:', new_url_depth
 				
 				if this.seed_urls or time_elapse(this.GEN_URLS_CLOCK)>this.max_seconds_gen_urls or len(this.new_urls)>this.min_records_gen_urls:
 					this.gen_urls_file(this.new_urls)

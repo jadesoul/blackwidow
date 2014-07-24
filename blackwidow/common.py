@@ -2,6 +2,7 @@
 
 from libjade import *
 from threading import Thread
+import gzip
 
 dir_root=cwd()
 dir_pages=join(dir_root, 'pages')
@@ -13,6 +14,20 @@ dirs=smap_dict('dir_root dir_pages dir_urls dir_archive dir_state', locals())
 
 infotxt='.info.txt'
 	
+
+def smart_fread(fp):
+	'''
+	smart read from a text file or a gzip text file
+	'''
+	try:
+		f=gzip.GzipFile(fp)
+		data=f.read()
+		f.close()
+	except:
+		data=fread(fp)
+
+	return data
+
 def dump_state():
 	jsonwrite(conf, fp_state)
 
