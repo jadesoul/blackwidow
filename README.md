@@ -51,14 +51,14 @@ Requirements
 Installation
 -------------
 
-### Install blackwidow as a python package by pth file automatically(Only for Windows)
+#### Install blackwidow as a python package by pth file automatically(Only for Windows)
   * If you have installed python in the root folder of a drive, simply click the "install_pth_file_blackwidow.py" to install a pth file in your ${python installation directory}/Lib/site-packages
   
-### Install blackwidow as a python package maually
+#### Install blackwidow as a python package maually
   * Just copy the "libspider" directory into your python's site-packages directory
   * Or create a pth file in your python's site-packages directory manually
   
-### What If I don't have time to install ?
+#### What If I don't have time to install ?
   * No problem, you just need to copy the libspider directory to where every time you run a new crawling application.
 
 User Guide
