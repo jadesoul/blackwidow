@@ -87,24 +87,33 @@ class Fetcher(Thread, object):
 				id, url, md5, depth, rank=urls.pop(0)
 				
 				# some schedule let newly add urls with higher rank be processed first
-				# if total>100 and cnt>(total/2): break
-				if cnt>10: break
+				if total<1000 and cnt>(total/2): break
+				if cnt>800: break
 				
 				try:
 					begin_time=time.time()
 					real_url, content_type, fsock=webopen(url, this.request_headers)
 					
 					# TODO: add debug logging here
-					# print 'content_type=', content_type
+					print 'url=', url
+					print 'real_url=', real_url
+					print 'content_type=', content_type
 					
 					ext=get_ext_by_mimetype(content_type)
 					if not ext: ext=get_file_type_by_url(real_url)
 					if not this.is_ext_ok(ext):
 						sockclose(fsock)
+						print this.fecher_name, 'bad_ext', rank, real_url
 						continue
 					
 					base=md5+'.'+ext
 					fp=join(dir_pages, base)
+					
+					if isfile(fp) and isfile(fp+infotxt):
+						# if the content has been downloaded before, skip
+						sockclose(fsock)
+						print this.fecher_name, 'exists', rank, real_url
+						continue
 					
 					data=sockreadonce(fsock)
 					# debug
